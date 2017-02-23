@@ -1,7 +1,11 @@
 package main
 
-import "github.com/harryzzp/turtle/actor"
+import (
+	//"github.com/harryzzp/turtle/actor"
+	"github.com/harryzzp/turtle/data"
+)
 
 func main() {
-	actor.TestActor()
+	//actor.TestActor()
+	data.PollCompanyBulletin()
 }
