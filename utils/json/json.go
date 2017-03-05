@@ -1,4 +1,4 @@
-package freejson
+package json
 
 import (
 	"encoding/json"

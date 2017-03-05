@@ -1,4 +1,4 @@
-package data
+package pullman
 
 import (
 	"fmt"
@@ -10,11 +10,11 @@ import (
 	"bytes"
 	"strings"
 	"encoding/json"
-	"github.com/harryzzp/turtle/freejson"
 )
 
 const (
 	//?callback=jQuery183039972617035050884_1487818194973
+	///http://www.neeq.com.cn/disclosureInfoController/disclosure/2017/2017-03-02/1488455485_645567.pdf
 	NEEQ_URL = "http://www.neeq.com.cn/disclosureInfoController/infoResult.do"
 )
 
@@ -80,7 +80,6 @@ type Neeq struct {
 func ParseCompanyBulletin(startTime string, endTime string) Neeq {
 	var s Neeq
 	str := PollCompanyBulletin(startTime, endTime)
-	freejson.FreeType(string(str))
 	json.Unmarshal([]byte(str), &s)
 	return s
 }
@@ -95,7 +94,7 @@ func PollCompanyBulletin(startTime string, endTime string) string {
 
 	formData := url.Values{
 		"disclosureType": {"5"},
-		"page":           {"0"},
+		"page":           {"1"},
 		"companyCd":      {""},
 		"isNewThree":     {"1"},
 		"startTime":      {startTime},
